@@ -1,0 +1,19 @@
+azcopy login –tenant-id “<Your-tenant-id>”
+$ azcopy copy "<Source storage path>" "https://<Azure-storage-accountname>.blob.core.windows.net/<your-container-name>/"
+
+## Or we can use this command to download Az copy: 
+$ wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1 --2022-07-24 05:14:48-- https://aka.ms/downloadazcopy-v10-linux
+
+Then extract the tar file.
+
+$ gunzip azcopy_v10.tar.gz
+$ tar -xvf azcopy_v10.tar
+
+Now make a new folder and create few text files inside it.
+
+Now use the following command to use AZcopy to transfer your local uploaded files to your container.
+
+$ ./azcopy copy "/logsdir/*" "https://atmstorageaccnt.blob.core.windows.net/mycontainer/?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2022-07-24T12:35:26Z&st=2022-07-
+24T04:35:26Z&spr=https&sig=X9t%2Fn4k5nUg%2BrBSIac2rVuRwHlUmbuNG3yjrP1zbsoE%3D" –recursive
+
+
