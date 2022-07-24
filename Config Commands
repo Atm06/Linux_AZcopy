@@ -16,4 +16,46 @@ Now use the following command to use AZcopy to transfer your local uploaded file
 $ ./azcopy copy "/logsdir/*" "https://atmstorageaccnt.blob.core.windows.net/mycontainer/?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2022-07-24T12:35:26Z&st=2022-07-
 24T04:35:26Z&spr=https&sig=X9t%2Fn4k5nUg%2BrBSIac2rVuRwHlUmbuNG3yjrP1zbsoE%3D" –recursive
 
+#Use Cases
 
+## Copy a blob
+Copy a blob to another storage account by using the azcopy copy command.
+
+Syntax:
+
+azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account name>.blob.core.windows.net/<container-name>/<blob-path>'
+
+## Copy a directory
+Copy a directory to another storage account by using the azcopy copy command.
+
+Syntax:
+
+azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive
+
+##Copy a container
+Copy a container to another storage account by using the azcopy copy command.
+
+Syntax:
+
+azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive
+
+
+
+# Copy data from Amazon S3 to Azure Storage by using AzCopy:
+
+AzCopy helps you copy objects, directories, and buckets from Amazon Web Services (AWS) S3 to Azure Blob Storage by using AzCopy.
+
+## Copy an object
+Syntax:
+
+azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'
+
+## Copy a bucket
+Syntax:
+
+azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true
+
+## Copy all buckets in all regions
+Syntax:
+
+azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true
